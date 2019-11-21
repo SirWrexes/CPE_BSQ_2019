@@ -10,7 +10,7 @@
 #include "fox_define.h"
 #include "fox_string.h"
 
-__nonnull
+__Anonnull
 static size_t numsize(char const **s)
 {
     size_t n = 0;
@@ -22,7 +22,7 @@ static size_t numsize(char const **s)
     return n;
 }
 
-__nonnull
+__Anonnull
 static bool get_sign(char const **s)
 {
     bool isneg = false;

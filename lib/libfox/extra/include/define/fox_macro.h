@@ -17,17 +17,17 @@
 #ifndef LIBFOX_MACRO_UNDEF
     #define LIBFOX_MACRO_UNDEF
     #undef __a
-    #undef __cleanup
-    #undef __const
-    #undef __fallthrough
-    #undef __format
-    #undef __leaf
-    #undef __malloc
-    #undef __nonnull
-    #undef __packed
-    #undef __pure
-    #undef __transparent
-    #undef __unused
+    #undef __Acleanup
+    #undef __Aconst
+    #undef __Afallthrough
+    #undef __Aformat
+    #undef __Aleaf
+    #undef __Amalloc
+    #undef __Anonnull
+    #undef __Apacked
+    #undef __Apure
+    #undef __Atransparent
+    #undef __Aunused
     #undef CHAR_IS_ALPHA
     #undef CHAR_IS_ALPHALO
     #undef CHAR_IS_ALPHANUM
@@ -63,18 +63,18 @@
     // Shorter ways of writing attributes
     // For more information about these, check GNU GCC's docs
     // CAREFUL: These have RESTRICTED PORTABILITY
-    #define __a(attributes)      __attribute__(attributes)
-    #define __cleanup(janitor)   __a((cleanup(janitor)))
-    #define __const              __a((const))
-    #define __fallthrough        __a((fallthrough))
-    #define __format(type, f, a) __a((format(type, f, a)))
-    #define __leaf               __a((leaf))
-    #define __malloc             __a((malloc))
-    #define __nonnull            __a((nonnull))
-    #define __packed             __a((packed))
-    #define __pure               __a((pure))
-    #define __transparent        __a((__transparent_union__))
-    #define __unused             __a((unused))
+    #define __a(attributes)       __attribute__(attributes)
+    #define __Acleanup(janitor)   __a((cleanup(janitor)))
+    #define __Aconst              __a((const))
+    #define __Afallthrough        __a((fallthrough))
+    #define __Aformat(type, f, a) __a((format(type, f, a)))
+    #define __Aleaf               __a((leaf))
+    #define __Amalloc             __a((malloc))
+    #define __Anonnull            __a((nonnull))
+    #define __Apacked             __a((packed))
+    #define __Apure               __a((pure))
+    #define __Atransparent        __a((__transparent_union__))
+    #define __Aunused             __a((unused))
 
     // True if c is a printable ASCII char
     #define CHAR_IS_PRINTABLE(c) ((signed char) (c) - ' ' >= 0 && (c) != 127)
