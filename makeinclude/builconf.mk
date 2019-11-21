@@ -24,11 +24,12 @@ LDFLAGS += $(foreach mod, $(FOXMODULES), -L./lib/libfox/$(strip $(mod)))
 LDLIBS  += $(foreach mod, $(FOXMODULES), -lfox_$(strip $(mod)))
 LDLIBS  += $(foreach lib, $(LIBS), -l$(strip $(lib)))
 # ---------------------------------------------------------------------------------------- #
-COV     := $(notdir $(OBJ:.o=.gc*)) $(notdir $(TST:.c=.gc*)) $(notdir $(WRAPSRC:.c=.gc*))
 OBJ     := $(SRC:.c=.o) $(DEPSRC:.c=.o)
 DEP     := $(OBJ:.o=.d) $(DEPSRC:.c=.d)
 -include $(DEP)
 .PRECIOUS := $(DEP)
+# ---------------------------------------------------------------------------------------- #
+COV     := $(notdir $(OBJ:.o=.gc*)) $(notdir $(TST:.c=.gc*)) $(notdir $(WRAPSRC:.c=.gc*))
 ############################################################################################
 
 
@@ -40,6 +41,7 @@ COVFLAGS  := -s --exclude-unreachable-branches
 COVFLAGS  += $(foreach s, $(DEPSRC), -e $(notdir $(s)))
 COVFLAGS  += --exclude='.*test_.*'
 COVFLAGS  += --exclude='.*wrap_.*'
+COVFLAGS  += --exclude-directories 'lib'
 REPORTTXT := "TEST REPORT"
 # ---------------------------------------------------------------------------------------- #
 # Run `make tests SHOW_BRANCHES=1` to get branch coverage report

@@ -82,13 +82,14 @@ $(DEBUGBIN): compiledb libfox
 #########################################################################################
 .PHONY: rm_test_files
 rm_test_files:
+	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" test temp files"
 	@$(foreach tmp, $(TESTTMP), $(RM) $(tmp))
 # ------------------------------------------------------------------------------------- #
 $(TESTBIN): TARGET          := $(TESTBIN)
 $(TESTBIN): COMPILEDBTARGET := $(TESTBIN)
-$(TESTBIN): FILES           += $(SRC) $(TEST) $(WRAPSRC)
+$(TESTBIN): FILES           += $(SRC) $(TST) $(WRAPSRC)
 $(TESTBIN): CFLAGS          += --coverage
-$(TESTBIN): CFLAGS          += -Wl$(foreach wrap, $(WRAPPED),,--wrap=$(wrap))
+$(TESTBIN): CFLAGS          += $(WRAPFLAGS)
 $(TESTBIN): LDFLAGS         += -l criterion
 $(TESTBIN): FOXRULE         := $(FOXRULE) tests
 $(TESTBIN): rm_test_files compiledb libfox build
@@ -108,7 +109,7 @@ test_report: $(TESTBIN)
 #########################################################################################
 .PHONY: clean
 clean: FOXRULE := clean
-clean: libfox
+clean: libfox rm_test_files
 	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" objects"
 	@$(RM) $(OBJ)
 	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" dependency files"
@@ -120,7 +121,7 @@ clean: libfox
 # ------------------------------------------------------------------------------------- #
 .PHONY: fclean
 fclean: FOXRULE := fclean
-fclean: libfox
+fclean: libfox rm_test_files
 	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" $(COMPILEDB)"
 	@$(RM) $(COMPILEDB)
 	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" objects"

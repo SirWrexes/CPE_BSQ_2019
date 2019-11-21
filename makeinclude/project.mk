@@ -8,8 +8,8 @@
 #
 # Project and binary name
 ################################################
-NAME :=
-BIN  :=
+NAME := BSQ
+BIN  := bsq
 #     It's IMPORTANT that the binary name
 # /!\ contains no whitespace !
 #     Otherwise it'l break the Progress% script.
@@ -20,22 +20,23 @@ BIN  :=
 ################################################
 MAIN := ./src/main.c
 # -------------------------------------------- #
-SRC  :=
-SRC  +=
+SRC := ./src/open_map.c
+SRC +=
 ################################################
 
 #
 # Test sources
 ################################################
-TEST :=
-TEST +=
+TST := ./tests/test_open_map.c
+TST +=
 ################################################
 
 
 #
 # Files created by unit tests functions
 ################################################
-TESTTMP :=
+TESTTMP := TEST_OPEN_MAP-1.tmp
+TESTTMP += TEST_OPEN_MAP-2.tmp
 ################################################
 
 #
