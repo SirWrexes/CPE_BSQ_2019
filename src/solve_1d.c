@@ -23,8 +23,6 @@ bool solve_1d(str_t mapbuff)
             if (*(mapbuff + fox_strspn(mapbuff, "o.\n")) != '\0')
                 return true;
             __Afallthrough;
-        default:
-            fox_putstr(out);
-            return false;
+        default: fox_putstr(out); return false;
     }
 }
