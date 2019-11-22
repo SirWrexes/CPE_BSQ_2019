@@ -17,7 +17,7 @@ static size_t numsize(char const **s)
 
     while (**s == '0')
         *s += 1;
-    while ((*s)[n] != '\0' && CHAR_IS_NUM((*s)[n]))
+    while (CHAR_IS_NUM((*s)[n]))
         n += 1;
     return n;
 }

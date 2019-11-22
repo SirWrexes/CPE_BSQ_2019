@@ -77,13 +77,14 @@
     #define __Aunused             __a((unused))
 
     // True if c is a printable ASCII char
-    #define CHAR_IS_PRINTABLE(c) ((signed char) (c) - ' ' >= 0 && (c) != 127)
+    #define CHAR_IS_PRINTABLE(c) \
+        (((signed char) ((c) - ' ')) >= 0 && (c) != 127)
 
     // Check if a char is an end of line (linebreak OR null char)
     #define CHAR_IS_EOL(c) ((c) == '\n' || (c) == '\0')
 
     // Check if a char is strictly numeric
-    #define CHAR_IS_NUM(c) ((unsigned char) (c) - '0' < 10)
+    #define CHAR_IS_NUM(c) (((unsigned char) ((c) - '0')) < 10)
 
     // Check if a char is strictly lowercase alphabetical
     #define CHAR_IS_ALPHALO(c) ((unsigned char) (c) - 'a' <= 'z' - 'a')
