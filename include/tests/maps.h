@@ -21,6 +21,7 @@ extern const char UTMAP_10_1_INVALIDCHAR[13];
 extern const char UTMAP_10_10_D3[113];
 extern const char UTMAP_10_1_D20[13];
 extern const char UTMAP_1_10_D20[23];
+extern const char UTMAP_1_10_FULL[23];
 
 // Solved maps
 extern const char S_UTMAP_10_1_D20[13];
