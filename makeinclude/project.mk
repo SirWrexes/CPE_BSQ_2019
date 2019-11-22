@@ -41,6 +41,7 @@ TST += ./tests/test_get_dimensions.c
 TESTTMP := TEST_OPEN_MAP-1.tmp
 TESTTMP += TEST_OPEN_MAP-2.tmp
 TESTTMP += UTMAP_10_10_D3.tmp
+TESTTMP += UTMAP_10_10_D3-dimensions-OK.tmp
 TESTTMP += UTMAP_10_10_D3-no_malloc.tmp
 TESTTMP += UTMAP_10_10_D3-no_malloc.tmp
 TESTTMP += UTMAP_10_10_D3-invalid_l1_a.tmp
@@ -60,6 +61,7 @@ LIBS +=
 ################################################
 # FOXMODULES += datastruct
 # FOXMODULES += io
+FOXMODULES += math
 FOXMODULES += std
 # FOXMODULES += string
 ################################################
