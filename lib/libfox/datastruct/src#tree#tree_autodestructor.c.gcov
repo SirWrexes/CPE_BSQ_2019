@@ -1,0 +1,29 @@
+        -:    0:Source:src/tree/tree_autodestructor.c
+        -:    0:Graph:/home/renard/repos/delivery/CPE_2019/CPE_BSQ_2019/lib/libfox/datastruct/tree_autodestructor.gcno
+        -:    0:Data:/home/renard/repos/delivery/CPE_2019/CPE_BSQ_2019/lib/libfox/datastruct/tree_autodestructor.gcda
+        -:    0:Runs:35
+        -:    1:/*
+        -:    2:** EPITECH PROJECT, 2019
+        -:    3:** Libfox
+        -:    4:** File description:
+        -:    5:** Tree auto destructor for cleanup attribute
+        -:    6:*/
+        -:    7:
+        -:    8:#include "datastruct/fox_tree.h"
+        -:    9:
+        -:   10:__Aconst
+function treedata_destructor called 1 returned 100% blocks executed 100%
+        1:   11:leafcutter_t *treedata_destructor(void)
+        -:   12:{
+        -:   13:    static leafcutter_t f = NULL;
+        -:   14:
+        1:   15:    return &f;
+        -:   16:}
+        -:   17:
+        -:   18:__Anonnull
+function chainsaw called 1 returned 100% blocks executed 100%
+        1:   19:void chainsaw(foxtree_t *treeptr)
+        -:   20:{
+        1:   21:    tree_destroy(treeptr, leafcutter);
+call    0 returned 1
+        1:   22:}

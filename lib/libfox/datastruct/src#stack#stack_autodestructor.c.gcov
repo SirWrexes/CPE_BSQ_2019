@@ -1,0 +1,29 @@
+        -:    0:Source:src/stack/stack_autodestructor.c
+        -:    0:Graph:/home/renard/repos/delivery/CPE_2019/CPE_BSQ_2019/lib/libfox/datastruct/stack_autodestructor.gcno
+        -:    0:Data:/home/renard/repos/delivery/CPE_2019/CPE_BSQ_2019/lib/libfox/datastruct/stack_autodestructor.gcda
+        -:    0:Runs:35
+        -:    1:/*
+        -:    2:** EPITECH PROJECT, 2019
+        -:    3:** Libfox
+        -:    4:** File description:
+        -:    5:** Stack auto destructor for cleanup attribute
+        -:    6:*/
+        -:    7:
+        -:    8:#include "datastruct/fox_stack.h"
+        -:    9:
+        -:   10:__Aconst
+function stackdata_destructor called 1 returned 100% blocks executed 100%
+        1:   11:pilebreaker_t *stackdata_destructor(void)
+        -:   12:{
+        -:   13:    static pilebreaker_t f = NULL;
+        -:   14:
+        1:   15:    return &f;
+        -:   16:}
+        -:   17:
+        -:   18:__Anonnull
+function jenga called 1 returned 100% blocks executed 100%
+        1:   19:void jenga(foxstack_t *stackptr)
+        -:   20:{
+        1:   21:    stack_destroy(stackptr, pilebreaker);
+call    0 returned 1
+        1:   22:}

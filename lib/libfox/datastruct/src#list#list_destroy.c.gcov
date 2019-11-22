@@ -1,0 +1,36 @@
+        -:    0:Source:src/list/list_destroy.c
+        -:    0:Graph:/home/renard/repos/delivery/CPE_2019/CPE_BSQ_2019/lib/libfox/datastruct/list_destroy.gcno
+        -:    0:Data:/home/renard/repos/delivery/CPE_2019/CPE_BSQ_2019/lib/libfox/datastruct/list_destroy.gcda
+        -:    0:Runs:35
+        -:    1:/*
+        -:    2:** EPITECH PROJECT, 2019
+        -:    3:** Libfox
+        -:    4:** File description:
+        -:    5:** Destroy a list and all of it elements
+        -:    6:*/
+        -:    7:
+        -:    8:#include <malloc.h>
+        -:    9:
+        -:   10:#include "datastruct/fox_list.h"
+        -:   11:
+        -:   12:__Anonnull
+function list_destroy called 4 returned 100% blocks executed 100%
+        4:   13:void list_destroy(foxlist_t *listptr, void (*destructor)())
+        -:   14:{
+        4:   15:    foxnode_t node = NULL;
+        4:   16:    foxnode_t temp = NULL;
+        -:   17:
+        4:   18:    if (*listptr == NULL)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 3
+        1:   19:        return;
+        6:   20:    for (node = (*listptr)->head; node != NULL; node = temp) {
+branch  0 taken 3
+branch  1 taken 3 (fallthrough)
+        3:   21:        temp = node->next;
+        3:   22:        node_destroy(&node, destructor);
+call    0 returned 3
+        -:   23:    }
+        3:   24:    free(*listptr);
+        3:   25:    *listptr = NULL;
+        -:   26:}

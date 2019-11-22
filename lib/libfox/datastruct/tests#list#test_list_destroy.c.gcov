@@ -1,0 +1,344 @@
+        -:    0:Source:tests/list/test_list_destroy.c
+        -:    0:Graph:/home/renard/repos/delivery/CPE_2019/CPE_BSQ_2019/lib/libfox/datastruct/test_list_destroy.gcno
+        -:    0:Data:/home/renard/repos/delivery/CPE_2019/CPE_BSQ_2019/lib/libfox/datastruct/test_list_destroy.gcda
+        -:    0:Runs:35
+        -:    1:/*
+        -:    2:** EPITECH PROJECT, 2019
+        -:    3:** Libfox
+        -:    4:** File description:
+        -:    5:** UT: List destruction
+        -:    6:*/
+        -:    7:
+        -:    8:#include <malloc.h>
+        -:    9:#include <criterion/criterion.h>
+        -:   10:#include <criterion/redirect.h>
+        -:   11:
+        -:   12:#include "datastruct/fox_list.h"
+        -:   13:
+function destructor called 3 returned 100% blocks executed 100%
+        3:   14:static void destructor(char ***s)
+        -:   15:{
+        3:   16:    free(**s);
+        3:   17:    **s = NULL;
+        3:   18:}
+        -:   19:
+        2:   20:Test(list_destroy, nonnull_destructor)
+        -:   21:{
+        1:   22:    foxlist_t list = NULL;
+        1:   23:    char *ref[] = {malloc(1), malloc(1), malloc(1)};
+        -:   24:
+       1*:   25:    cr_assert_not(list_create(&list));
+        4:   26:    for (hindex_t i = 0; i < 3; i += 1)
+       3*:   27:        cr_assert_not(list_addnode(list, &ref[i]));
+        1:   28:    list_destroy(&list, &destructor);
+       1*:   29:    cr_expect_null(list);
+        4:   30:    for (hindex_t i = 0; i < 3; i += 1)
+       3*:   31:        cr_expect_null(ref[i]);
+        1:   32:}
+------------------
+list_destroy_nonnull_destructor_impl:
+function list_destroy_nonnull_destructor_impl called 1 returned 100% blocks executed 39%
+        1:   20:Test(list_destroy, nonnull_destructor)
+        -:   21:{
+        1:   22:    foxlist_t list = NULL;
+        1:   23:    char *ref[] = {malloc(1), malloc(1), malloc(1)};
+        -:   24:
+       1*:   25:    cr_assert_not(list_create(&list));
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+call    5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+branch  9 never executed
+branch 10 never executed
+call   11 never executed
+call   12 never executed
+call   13 never executed
+call   14 never executed
+branch 15 taken 0 (fallthrough)
+branch 16 taken 1
+call   17 never executed
+call   18 returned 1
+        4:   26:    for (hindex_t i = 0; i < 3; i += 1)
+branch  0 taken 3
+branch  1 taken 1 (fallthrough)
+       3*:   27:        cr_assert_not(list_addnode(list, &ref[i]));
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0
+branch  3 taken 0 (fallthrough)
+branch  4 taken 3
+call    5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+branch  9 never executed
+branch 10 never executed
+call   11 never executed
+call   12 never executed
+call   13 never executed
+call   14 never executed
+branch 15 taken 0 (fallthrough)
+branch 16 taken 3
+call   17 never executed
+call   18 returned 3
+        1:   28:    list_destroy(&list, &destructor);
+call    0 returned 1
+       1*:   29:    cr_expect_null(list);
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+branch  8 never executed
+branch  9 never executed
+call   10 never executed
+call   11 never executed
+call   12 never executed
+call   13 never executed
+branch 14 taken 0 (fallthrough)
+branch 15 taken 1
+call   16 never executed
+call   17 returned 1
+        4:   30:    for (hindex_t i = 0; i < 3; i += 1)
+branch  0 taken 3
+branch  1 taken 1 (fallthrough)
+       3*:   31:        cr_expect_null(ref[i]);
+branch  0 taken 3 (fallthrough)
+branch  1 taken 0
+branch  2 taken 0 (fallthrough)
+branch  3 taken 3
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+branch  8 never executed
+branch  9 never executed
+call   10 never executed
+call   11 never executed
+call   12 never executed
+call   13 never executed
+branch 14 taken 0 (fallthrough)
+branch 15 taken 3
+call   16 never executed
+call   17 returned 3
+        1:   32:}
+------------------
+list_destroy_nonnull_destructor_jmp:
+function list_destroy_nonnull_destructor_jmp called 1 returned 100% blocks executed 100%
+        1:   20:Test(list_destroy, nonnull_destructor)
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+------------------
+        -:   33:
+    #####:   34:Test(list_destroy, null_destructor, .disabled = true)
+        -:   35:{
+    #####:   36:    foxlist_t list = NULL;
+    #####:   37:    char *ref[] = {"malloc(1)", "malloc(1)", "malloc(1)"};
+        -:   38:
+    #####:   39:    cr_assert_not(list_create(&list));
+    #####:   40:    for (hindex_t i = 0; i < 3; i += 1)
+    #####:   41:        cr_assert_not(list_addnode(list, &ref[i]));
+    #####:   42:    list_destroy(&list, NULL);
+    #####:   43:    cr_expect_null(list);
+    #####:   44:}
+------------------
+list_destroy_null_destructor_impl:
+function list_destroy_null_destructor_impl called 0 returned 0% blocks executed 0%
+    #####:   34:Test(list_destroy, null_destructor, .disabled = true)
+        -:   35:{
+    #####:   36:    foxlist_t list = NULL;
+    #####:   37:    char *ref[] = {"malloc(1)", "malloc(1)", "malloc(1)"};
+        -:   38:
+    #####:   39:    cr_assert_not(list_create(&list));
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+call    5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+branch  9 never executed
+branch 10 never executed
+call   11 never executed
+call   12 never executed
+call   13 never executed
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+call   17 never executed
+call   18 never executed
+    #####:   40:    for (hindex_t i = 0; i < 3; i += 1)
+branch  0 never executed
+branch  1 never executed
+    #####:   41:        cr_assert_not(list_addnode(list, &ref[i]));
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+branch  4 never executed
+call    5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+branch  9 never executed
+branch 10 never executed
+call   11 never executed
+call   12 never executed
+call   13 never executed
+call   14 never executed
+branch 15 never executed
+branch 16 never executed
+call   17 never executed
+call   18 never executed
+    #####:   42:    list_destroy(&list, NULL);
+call    0 never executed
+    #####:   43:    cr_expect_null(list);
+branch  0 never executed
+branch  1 never executed
+branch  2 never executed
+branch  3 never executed
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+branch  8 never executed
+branch  9 never executed
+call   10 never executed
+call   11 never executed
+call   12 never executed
+call   13 never executed
+branch 14 never executed
+branch 15 never executed
+call   16 never executed
+call   17 never executed
+    #####:   44:}
+------------------
+list_destroy_null_destructor_jmp:
+function list_destroy_null_destructor_jmp called 0 returned 0% blocks executed 0%
+    #####:   34:Test(list_destroy, null_destructor, .disabled = true)
+call    0 never executed
+call    1 never executed
+call    2 never executed
+------------------
+        -:   45:
+        2:   46:Test(list_destroy, empty_list)
+        -:   47:{
+        1:   48:    foxlist_t list = NULL;
+        -:   49:
+       1*:   50:    cr_assert_not(list_create(&list));
+        1:   51:    list_destroy(&list, NULL);
+       1*:   52:    cr_expect_null(list);
+        1:   53:}
+------------------
+list_destroy_empty_list_impl:
+function list_destroy_empty_list_impl called 1 returned 100% blocks executed 35%
+        1:   46:Test(list_destroy, empty_list)
+        -:   47:{
+        1:   48:    foxlist_t list = NULL;
+        -:   49:
+       1*:   50:    cr_assert_not(list_create(&list));
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+call    5 never executed
+call    6 never executed
+branch  7 never executed
+branch  8 never executed
+branch  9 never executed
+branch 10 never executed
+call   11 never executed
+call   12 never executed
+call   13 never executed
+call   14 never executed
+branch 15 taken 0 (fallthrough)
+branch 16 taken 1
+call   17 never executed
+call   18 returned 1
+        1:   51:    list_destroy(&list, NULL);
+call    0 returned 1
+       1*:   52:    cr_expect_null(list);
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+branch  8 never executed
+branch  9 never executed
+call   10 never executed
+call   11 never executed
+call   12 never executed
+call   13 never executed
+branch 14 taken 0 (fallthrough)
+branch 15 taken 1
+call   16 never executed
+call   17 returned 1
+        1:   53:}
+------------------
+list_destroy_empty_list_jmp:
+function list_destroy_empty_list_jmp called 1 returned 100% blocks executed 100%
+        1:   46:Test(list_destroy, empty_list)
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+------------------
+        -:   54:
+        2:   55:Test(list_destroy, null_list)
+        -:   56:{
+        1:   57:    foxlist_t list = NULL;
+        -:   58:
+        1:   59:    list_destroy(&list, NULL);
+       1*:   60:    cr_assert(true);
+        1:   61:}
+------------------
+list_destroy_null_list_impl:
+function list_destroy_null_list_impl called 1 returned 100% blocks executed 38%
+        1:   55:Test(list_destroy, null_list)
+        -:   56:{
+        1:   57:    foxlist_t list = NULL;
+        -:   58:
+        1:   59:    list_destroy(&list, NULL);
+call    0 returned 1
+       1*:   60:    cr_assert(true);
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+branch  2 taken 0 (fallthrough)
+branch  3 taken 1
+call    4 never executed
+call    5 never executed
+branch  6 never executed
+branch  7 never executed
+branch  8 never executed
+branch  9 never executed
+call   10 never executed
+call   11 never executed
+call   12 never executed
+call   13 never executed
+branch 14 taken 0 (fallthrough)
+branch 15 taken 1
+call   16 never executed
+call   17 returned 1
+        1:   61:}
+------------------
+list_destroy_null_list_jmp:
+function list_destroy_null_list_jmp called 1 returned 100% blocks executed 100%
+        1:   55:Test(list_destroy, null_list)
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+------------------

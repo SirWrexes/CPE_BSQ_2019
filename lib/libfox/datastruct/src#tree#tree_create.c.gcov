@@ -1,0 +1,29 @@
+        -:    0:Source:src/tree/tree_create.c
+        -:    0:Graph:/home/renard/repos/delivery/CPE_2019/CPE_BSQ_2019/lib/libfox/datastruct/tree_create.gcno
+        -:    0:Data:/home/renard/repos/delivery/CPE_2019/CPE_BSQ_2019/lib/libfox/datastruct/tree_create.gcda
+        -:    0:Runs:35
+        -:    1:/*
+        -:    2:** EPITECH PROJECT, 2019
+        -:    3:** Libfox
+        -:    4:** File description:
+        -:    5:** Binary tree creation
+        -:    6:*/
+        -:    7:
+        -:    8:#include <malloc.h>
+        -:    9:#include <stdbool.h>
+        -:   10:#include "fox_datastruct.h"
+        -:   11:#include "fox_define.h"
+        -:   12:
+        -:   13:__Anonnull
+function tree_create called 11 returned 100% blocks executed 100%
+       11:   14:bool tree_create(foxtree_t *treeptr)
+        -:   15:{
+       11:   16:    *treeptr = malloc(sizeof(**treeptr));
+       11:   17:    if (*treeptr == NULL)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 10
+        1:   18:        return true;
+       10:   19:    (*treeptr)->nodes = 0;
+       10:   20:    (*treeptr)->trunk = NULL;
+       10:   21:    return false;
+        -:   22:}

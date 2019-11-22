@@ -1,0 +1,29 @@
+        -:    0:Source:src/stack/stack_create.c
+        -:    0:Graph:/home/renard/repos/delivery/CPE_2019/CPE_BSQ_2019/lib/libfox/datastruct/stack_create.gcno
+        -:    0:Data:/home/renard/repos/delivery/CPE_2019/CPE_BSQ_2019/lib/libfox/datastruct/stack_create.gcda
+        -:    0:Runs:35
+        -:    1:/*
+        -:    2:** EPITECH PROJECT, 2019
+        -:    3:** Libfox
+        -:    4:** File description:
+        -:    5:** Stack creation
+        -:    6:*/
+        -:    7:
+        -:    8:#include <malloc.h>
+        -:    9:#include <stdbool.h>
+        -:   10:#include "datastruct/fox_stack.h"
+        -:   11:
+        -:   12:__Anonnull
+function stack_create called 9 returned 100% blocks executed 100%
+        9:   13:bool stack_create(foxstack_t *stack)
+        -:   14:{
+        9:   15:    *stack = malloc(sizeof(**stack));
+        -:   16:
+        9:   17:    if (*stack == NULL)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 8
+        1:   18:        return true;
+        8:   19:    (*stack)->items = 0;
+        8:   20:    (*stack)->faketop = NULL;
+        8:   21:    return false;
+        -:   22:}
