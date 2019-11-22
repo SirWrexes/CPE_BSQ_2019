@@ -7,7 +7,6 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include <fcntl.h>
 
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
