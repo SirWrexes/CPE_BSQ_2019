@@ -35,4 +35,8 @@ scount_t read_map(str_t *buffptr, mapstat_t *ms) __Anonnull;
 // Returns true in case of error
 bool get_dimensions(mapdims_t *md, mapstat_t *ms, str_t mapbuff) __Anonnull;
 
+// If one of the map's dimensions is 1, find the first dot
+// Returns true in case of invalid character
+bool solve_1d(str_t mapbuff) __Anonnull;
+
 #endif /* !BSQ_H */

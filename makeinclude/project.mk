@@ -23,6 +23,7 @@ MAIN := ./src/main.c
 SRC := ./src/open_map.c
 SRC += ./src/read_map.c
 SRC += ./src/get_dimensions.c
+SRC += ./src/solve_1d.c
 ################################################
 
 #
@@ -32,6 +33,7 @@ TST := ./tests/test_maps_def.c
 TST += ./tests/test_open_map.c
 TST += ./tests/test_read_map.c
 TST += ./tests/test_get_dimensions.c
+TST += ./tests/test_solve_1d.c
 ################################################
 
 
@@ -61,8 +63,8 @@ LIBS +=
 # to the libfox modules you use in the project.
 ################################################
 # FOXMODULES += datastruct
-# FOXMODULES += io
+FOXMODULES += io
 FOXMODULES += math
 FOXMODULES += std
-# FOXMODULES += string
+FOXMODULES += string
 ################################################
