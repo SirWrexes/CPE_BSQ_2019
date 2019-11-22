@@ -18,8 +18,21 @@ typedef struct {
     struct stat stat;
 } mapstat_t;
 
+typedef struct {
+    size_t x;
+    size_t y;
+} mapdims_t;
+
 // Try opening a map.
 // Returns 0 if succesful
 bool open_map(str2c_t path, mapstat_t *ms) __Anonnull;
+
+// Allocate a string and fill it with the contents of the file from ms
+// Returns number of written characters or -1 in case of error
+scount_t read_map(str_t *buffptr, mapstat_t *ms) __Anonnull;
+
+// Extract the map's dimensions from the created buffer
+// Returns true in case of error
+bool get_dimensions(mapdims_t *md, mapstat_t *ms, str_t mapbuff) __Anonnull;
 
 #endif /* !BSQ_H */

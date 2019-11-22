@@ -42,7 +42,7 @@ endif
 .PHONY: build
 build: libfox
 build: | $(FILES)
-	@$(CC) -o $(TARGET) $(CFLAGS) $(FILES) $(LDFLAGS) $(LDLIBS)
+	@$(CC) -o $(TARGET) $(CFLAGS) $(FILES) $(LDFLAGS) $(LDLIBS)	$(CMDOPTS)
 	@$(ECHO$(BIN)) $(CBOLD)"Link OK"$(CRESET)
 	@$(ECHO$(BIN)) $(CBOLD)$(CLIGHTBLUE)"Done compiling"$(CRESET) $(CLIGHTBLUE)"$(TARGET)"$(CRESET)
 #########################################################################################
@@ -73,7 +73,7 @@ $(DEBUGBIN): FOXRULE := $(FOXMODULES)
 $(DEBUGBIN): CFLAGS  += -ggdb3 -rdynamic
 $(DEBUGBIN): SRC     += $(MAIN)
 $(DEBUGBIN): compiledb libfox
-	$(CC) -o $(DEBUGBIN) $(CFLAGS) $(SRC) $(LDFLAGS) $(LDLIBS)
+	$(CC) -o $(DEBUGBIN) $(CFLAGS) $(SRC) $(LDFLAGS) $(LDLIBS) $(CMDOPTS)
 #########################################################################################
 
 

@@ -21,14 +21,17 @@ BIN  := bsq
 MAIN := ./src/main.c
 # -------------------------------------------- #
 SRC := ./src/open_map.c
-SRC +=
+SRC += ./src/read_map.c
+SRC += ./src/get_dimensions.c
 ################################################
 
 #
 # Test sources
 ################################################
-TST := ./tests/test_open_map.c
-TST +=
+TST := ./tests/test_maps_def.c
+TST += ./tests/test_open_map.c
+TST += ./tests/test_read_map.c
+TST += ./tests/test_get_dimensions.c
 ################################################
 
 
@@ -37,6 +40,11 @@ TST +=
 ################################################
 TESTTMP := TEST_OPEN_MAP-1.tmp
 TESTTMP += TEST_OPEN_MAP-2.tmp
+TESTTMP += UTMAP_10_10_D3.tmp
+TESTTMP += UTMAP_10_10_D3-no_malloc.tmp
+TESTTMP += UTMAP_10_10_D3-no_malloc.tmp
+TESTTMP += UTMAP_10_10_D3-invalid_l1_a.tmp
+TESTTMP += UTMAP_10_10_D3-invalid_l1_b.tmp
 ################################################
 
 #
@@ -52,6 +60,6 @@ LIBS +=
 ################################################
 # FOXMODULES += datastruct
 # FOXMODULES += io
-# FOXMODULES += std
+FOXMODULES += std
 # FOXMODULES += string
 ################################################
