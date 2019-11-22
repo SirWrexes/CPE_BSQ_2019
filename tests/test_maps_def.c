@@ -47,6 +47,19 @@ const char S_UTMAP_1_10_D20[23] =
     ".\n"
     "o\n";
 
+const char UTMAP_1_10_FULL[23] =
+    "10\n"
+    "o\n"
+    "o\n"
+    "o\n"
+    "o\n"
+    "o\n"
+    "o\n"
+    "o\n"
+    "o\n"
+    "o\n"
+    "o\n";
+
 const char UTMAP_10_10_D3[113] =
     "10\n"
     "...o..o...\n"

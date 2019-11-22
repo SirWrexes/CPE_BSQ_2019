@@ -13,6 +13,11 @@
 
 #include "bsq.h"
 
+Test(solve_1d, only_obstacles, .init = cr_redirect_stdout)
+{
+    cr_expect_not(solve_1d((str_t) UTMAP_1_10_FULL));
+}
+
 Test(solve_1d, y_eq_1, .init = cr_redirect_stdout)
 {
     str_t buff = strdup(UTMAP_1_10_D20);
