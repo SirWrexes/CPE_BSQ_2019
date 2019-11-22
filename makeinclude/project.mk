@@ -44,8 +44,9 @@ TESTTMP += UTMAP_10_10_D3.tmp
 TESTTMP += UTMAP_10_10_D3-dimensions-OK.tmp
 TESTTMP += UTMAP_10_10_D3-no_malloc.tmp
 TESTTMP += UTMAP_10_10_D3-no_malloc.tmp
-TESTTMP += UTMAP_10_10_D3-invalid_l1_a.tmp
-TESTTMP += UTMAP_10_10_D3-invalid_l1_b.tmp
+TESTTMP += UTMAP_10_10_D3-invalid_l1-A.tmp
+TESTTMP += UTMAP_10_10_D3-invalid_l1-B.tmp
+TESTTMP += UTMAP_10_10_D3-invalid_cc.tmp
 ################################################
 
 #

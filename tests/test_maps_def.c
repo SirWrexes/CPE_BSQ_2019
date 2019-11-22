@@ -48,20 +48,7 @@ const char UTMAP_10_10_D3_INVALIDL1_B[116] =
     "o.o.o..o..\n"
     "....o.....\n";
 
-const char UTMAP_10_10_D3_INVALIDLL[113] =
-    "10\n"
-    "...o..o...\n"
-    "o.........\n"
-    "......o.o.\n"
-    ".....o.o.o\n"
-    "..o.o..\n"
-    "..........\n"
-    "......oo.o\n"
-    ".......o..\n"
-    "o.o.o..o..\n"
-    "....o.....\n";
-
-const char UTMAP_10_10_D3_INVALIDLC[113] =
+const char UTMAP_10_10_D3_INVALIDCC[110] =
     "10\n"
     "...o..o...\n"
     "o.........\n"

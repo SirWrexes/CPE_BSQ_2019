@@ -42,6 +42,7 @@ endif
 .PHONY: build
 build: libfox
 build: | $(FILES)
+	@$(RM) $(COV)
 	@$(CC) -o $(TARGET) $(CFLAGS) $(FILES) $(LDFLAGS) $(LDLIBS)	$(CMDOPTS)
 	@$(ECHO$(BIN)) $(CBOLD)"Link OK"$(CRESET)
 	@$(ECHO$(BIN)) $(CBOLD)$(CLIGHTBLUE)"Done compiling"$(CRESET) $(CLIGHTBLUE)"$(TARGET)"$(CRESET)
