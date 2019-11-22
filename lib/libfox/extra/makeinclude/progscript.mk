@@ -36,7 +36,7 @@ endef
 PROGSCRIPT := .progbar
 ifndef ECHO$(NAME)
   $(call export PROGBAR-CODE) $(file >$(PROGSCRIPT),$(PROGBAR-CODE))
-  T := $(shell $(MAKE) . $(MAKECMDGOALS)	\
+  T = $(shell $(MAKE) . $(MAKECMDGOALS)	\
        -nrRf $(firstword $(MAKEFILE_LIST)) 	\
        ECHO$(NAME)="COUNT$(NAME)" | grep -c "COUNT$(NAME)")
   N := x
