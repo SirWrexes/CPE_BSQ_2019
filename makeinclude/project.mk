@@ -25,6 +25,8 @@ SRC += ./src/read_map.c
 SRC += ./src/get_dimensions.c
 SRC += ./src/solve_1d.c
 SRC += ./src/alloc_matrix.c
+SRC += ./src/solve_matrix.c
+SRC += ./src/bsq_position.c
 ################################################
 
 #
@@ -34,6 +36,7 @@ TST := ./tests/test_maps_def.c
 TST += ./tests/test_open_map.c
 TST += ./tests/test_read_map.c
 TST += ./tests/test_get_dimensions.c
+TST += ./tests/test_solve_matrix.c
 TST += ./tests/test_solve_1d.c
 TST += ./tests/test_alloc_matrix.c
 ################################################
@@ -53,6 +56,8 @@ TESTTMP += UTMAP_10_10_D3-no_malloc.tmp
 TESTTMP += UTMAP_10_10_D3.tmp
 TESTTMP += UTMAP_6_6_D25-alloctest.tmp
 TESTTMP += UTMAP_6_6_D25-alloctest_fail.tmp
+TESTTMP += UTMAP_6_6_D25-invalid_char.tmp
+TESTTMP += UTMAP_6_6_D25-solvetest.tmp
 ################################################
 
 #
