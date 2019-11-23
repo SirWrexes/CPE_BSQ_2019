@@ -19,7 +19,7 @@ __Anonnull
 static bool test_alloc_matrix(mapdims_t *md)
 {
     bool r;
-    uint (*mtxp)[2][md->y][md->x] = NULL;
+    uint (*mtxp)[md->y][md->x] = NULL;
 
 
     r = alloc_matrix(md, &mtxp);

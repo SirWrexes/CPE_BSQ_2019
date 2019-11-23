@@ -17,6 +17,7 @@ extern const char UTMAP_10_10_D3_INVALIDCC[110];
 extern const char UTMAP_10_10_D3_INVALIDL1_A[116];
 extern const char UTMAP_10_10_D3_INVALIDL1_B[116];
 extern const char UTMAP_10_1_INVALIDCHAR[13];
+extern const char UTMAP_6_6_INVALIDCHAR[44];
 /* Work fine       */
 extern const char UTMAP_10_10_D3[113];
 extern const char UTMAP_10_1_D20[13];
@@ -29,7 +30,7 @@ extern const char S_UTMAP_10_1_D20[13];
 extern const char S_UTMAP_1_10_D20[23];
 
 // Matrix converted maps
-extern const uint UTMTX_6_6_D25[2][6][7];
+extern const uint UTMTX_6_6_D25[6][6];
 
 #define ASSERT_FWRITE_MAP(mapname, fp)                                 \
     cr_assert_eq(                                                      \

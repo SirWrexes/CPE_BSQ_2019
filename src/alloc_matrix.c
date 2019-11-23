@@ -14,7 +14,7 @@
 #include "bsq.h"
 
 __Anonnull
-extern inline bool alloc_matrix(mapdims_t *md, uint (**mtxp)[2][md->y][md->x])
+extern inline bool alloc_matrix(mapdims_t *md, uint (**mtxp)[md->y][md->x])
 {
     *mtxp = malloc(sizeof(**mtxp));
     return SUCCEED_IF_DIFF(*mtxp, NULL);
