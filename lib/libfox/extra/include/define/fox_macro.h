@@ -148,6 +148,10 @@
     // One-liner to return value and execute any function(s)
     // -- I.G. returning a specific value while printing an error string
     #define RETURN(value, funcs...) return (0 ? : (funcs, value))
+
+    // Returns false (sucess) if a != b
+    #define SUCCEED_IF_DIFF(a, b) ((a) == (b))
+
 #endif // LIBFOX_MACRO_DEF
 
 #endif /* !FOX_MACRO_H */
