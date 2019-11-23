@@ -14,12 +14,13 @@
 #include "bsq.h"
 
 __Anonnull
-static bool find_bsq(mapdims_t *md, str_t mapbuff)
+static bool find_bsq(mapdims_t *md, str_t mapbuff, mapstat_t *ms)
 {
     uint(*mtxp)[md->y][md->x] = NULL;
     bsqdata_t bsq;
+    uint offset = (fox_unumsize(md->y) + 1) * sizeof(char);
 
-    mapbuff += fox_unumsize(md->y) + 1;
+    mapbuff += offset;
     if (alloc_matrix(md, &mtxp) || solve_matrix(md, *mtxp, mapbuff))
         return true;
     bsq.size = BSQPOS.size;
@@ -28,7 +29,9 @@ static bool find_bsq(mapdims_t *md, str_t mapbuff)
     for (uint sy = 0; sy < bsq.size; sy += 1)
         for (uint sx = 0; sx < bsq.size; sx += 1)
             *(mapbuff + (bsq.pos.y + sy) * (md->x + 1) + bsq.pos.x + sx) = 'x';
-        fox_putstr(mapbuff);
+    write(1, mapbuff, ms->stat.st_size / sizeof(*mapbuff) - offset);
+    free(mtxp);
+    free(mapbuff - offset);
     return false;
 }
 
@@ -47,6 +50,6 @@ int main(int ac, char **av)
         return solve_1d(mapbuff) * 84;
     else {
         close(ms.fd);
-        return find_bsq(&md, mapbuff) * 84;
+        return find_bsq(&md, mapbuff, &ms) * 84;
     }
 }
