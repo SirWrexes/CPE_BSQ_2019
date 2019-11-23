@@ -18,5 +18,5 @@ extern inline scount_t read_map(str_t *buffptr, mapstat_t *ms)
     *buffptr = malloc(ms->stat.st_size * sizeof(**buffptr));
     if (*buffptr == NULL)
         return -1;
-    return read(ms->fd, *buffptr, ms->stat.st_blksize);
+    return read(ms->fd, *buffptr, ms->stat.st_size);
 }
