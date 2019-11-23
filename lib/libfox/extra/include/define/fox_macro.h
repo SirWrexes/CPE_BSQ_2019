@@ -136,6 +136,9 @@
     // Get the biggest of two numbers
     #define N_MAX(x, y) ((x) > (y) ? (x) : (y))
 
+    // Get the smallest of two numbers
+    #define N_MIN(x, y) ((x) > (y) ? (y) : (x))
+
     // Check if a number is pair
     #define N_IS_EVEN(n) !N_IS_ODD(n)
 
