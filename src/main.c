@@ -16,7 +16,7 @@
 __Anonnull
 static bool find_bsq(mapdims_t *md, str_t mapbuff, mapstat_t *ms)
 {
-    uint(*mtxp)[md->y][md->x] = NULL;
+    uint (*mtxp)[md->y][md->x] = NULL;
     bsqdata_t bsq;
     uint offset = (fox_unumsize(md->y) + 1) * sizeof(char);
 
