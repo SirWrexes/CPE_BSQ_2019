@@ -22,13 +22,14 @@ extern const char UTMAP_10_10_D3[113];
 extern const char UTMAP_10_1_D20[13];
 extern const char UTMAP_1_10_D20[23];
 extern const char UTMAP_1_10_FULL[23];
+extern const char UTMAP_6_6_D25[44];
 
 // Solved maps
 extern const char S_UTMAP_10_1_D20[13];
 extern const char S_UTMAP_1_10_D20[23];
 
 // Matrix converted maps
-extern const uint UTMATRIX_10_10_D3[113];
+extern const uint UTMTX_6_6_D25[2][6][7];
 
 #define ASSERT_FWRITE_MAP(mapname, fp)                                 \
     cr_assert_eq(                                                      \

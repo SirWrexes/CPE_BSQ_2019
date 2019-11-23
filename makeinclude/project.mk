@@ -24,6 +24,7 @@ SRC := ./src/open_map.c
 SRC += ./src/read_map.c
 SRC += ./src/get_dimensions.c
 SRC += ./src/solve_1d.c
+SRC += ./src/alloc_matrix.c
 ################################################
 
 #
@@ -34,6 +35,7 @@ TST += ./tests/test_open_map.c
 TST += ./tests/test_read_map.c
 TST += ./tests/test_get_dimensions.c
 TST += ./tests/test_solve_1d.c
+TST += ./tests/test_alloc_matrix.c
 ################################################
 
 
@@ -42,13 +44,15 @@ TST += ./tests/test_solve_1d.c
 ################################################
 TESTTMP := TEST_OPEN_MAP-1.tmp
 TESTTMP += TEST_OPEN_MAP-2.tmp
-TESTTMP += UTMAP_10_10_D3.tmp
 TESTTMP += UTMAP_10_10_D3-dimensions-OK.tmp
-TESTTMP += UTMAP_10_10_D3-no_malloc.tmp
-TESTTMP += UTMAP_10_10_D3-no_malloc.tmp
+TESTTMP += UTMAP_10_10_D3-invalid_cc.tmp
 TESTTMP += UTMAP_10_10_D3-invalid_l1-A.tmp
 TESTTMP += UTMAP_10_10_D3-invalid_l1-B.tmp
-TESTTMP += UTMAP_10_10_D3-invalid_cc.tmp
+TESTTMP += UTMAP_10_10_D3-no_malloc.tmp
+TESTTMP += UTMAP_10_10_D3-no_malloc.tmp
+TESTTMP += UTMAP_10_10_D3.tmp
+TESTTMP += UTMAP_6_6_D25-alloctest.tmp
+TESTTMP += UTMAP_6_6_D25-alloctest_fail.tmp
 ################################################
 
 #

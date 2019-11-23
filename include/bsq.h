@@ -8,6 +8,7 @@
 #ifndef BSQ_H
 #define BSQ_H
 
+#include <sys/types.h>
 #include <sys/stat.h>
 #include <stdbool.h>
 
@@ -38,5 +39,9 @@ bool get_dimensions(mapdims_t *md, mapstat_t *ms, str_t mapbuff) __Anonnull;
 // If one of the map's dimensions is 1, find the first dot
 // Returns true in case of invalid character
 bool solve_1d(str_t mapbuff) __Anonnull;
+
+// Allocate a matrix for the BSQ algorithm
+// Returns true in case of failure
+bool alloc_matrix(mapdims_t *md, uint (**mtxp)[2][md->y][md->x]) __Anonnull;
 
 #endif /* !BSQ_H */
