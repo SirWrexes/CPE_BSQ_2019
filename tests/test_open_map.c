@@ -11,7 +11,7 @@
 
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
-#include "tests/wrap_open.h"
+#include "tests/fox_wrappers.h"
 
 #include "bsq.h"
 

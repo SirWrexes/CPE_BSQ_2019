@@ -16,6 +16,6 @@
 __Anonnull extern inline bool open_map(str2c_t path, mapstat_t *ms)
 {
     ms->fd = open(path, O_RDONLY);
-    return SUCCEED_IF_DIFF(ms->fd, -1)
-        || SUCCEED_IF_DIFF(stat(path, &ms->stat), -1);
+    return SUCCESS_IF_DIFF(ms->fd, -1)
+        || SUCCESS_IF_DIFF(stat(path, &ms->stat), -1);
 }

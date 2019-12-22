@@ -11,7 +11,7 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 #include "tests/maps.h"
-#include "tests/wrap_malloc.h"
+#include "tests/fox_wrappers.h"
 
 #include "bsq.h"
 

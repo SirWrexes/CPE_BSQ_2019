@@ -45,7 +45,7 @@ __Anonnull static bool set_line(
             default: return true;
         }
     }
-    return !SUCCEED_IF_DIFF(*(*mapbuff)++, '\n');
+    return !SUCCESS_IF_DIFF(*(*mapbuff)++, '\n');
 }
 
 __Anonnull bool solve_matrix(

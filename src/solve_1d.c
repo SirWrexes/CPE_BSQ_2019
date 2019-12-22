@@ -13,7 +13,7 @@ __Anonnull __AalwaysILext bool solve_1d(str_t mapbuff)
 {
     str_t out = NULL;
 
-    mapbuff += fox_strspn(mapbuff, STR_NUMERIC "\n");
+    mapbuff += fox_strspn(mapbuff, STR_NUMERICS "\n");
     out = mapbuff;
     mapbuff += fox_strspn(mapbuff, "o\n");
     switch (*mapbuff) {
