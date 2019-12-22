@@ -6,11 +6,10 @@
 */
 
 #include "fox_define.h"
-#include "fox_string.h"
 #include "fox_io.h"
+#include "fox_string.h"
 
-__Anonnull
-bool solve_1d(str_t mapbuff)
+__Anonnull __AalwaysILext bool solve_1d(str_t mapbuff)
 {
     str_t out = NULL;
 

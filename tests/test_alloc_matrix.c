@@ -10,17 +10,15 @@
 
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
-#include "tests/wrap_malloc.h"
 #include "tests/maps.h"
+#include "tests/wrap_malloc.h"
 
 #include "bsq.h"
 
-__Anonnull
-static bool test_alloc_matrix(mapdims_t *md)
+__Anonnull static bool test_alloc_matrix(mapdims_t *md)
 {
     bool r;
-    uint (*mtxp)[md->y][md->x] = NULL;
-
+    uint(*mtxp)[md->y][md->x] = NULL;
 
     r = alloc_matrix(md, &mtxp);
     if (r == false)
@@ -38,8 +36,7 @@ Test(alloc_matrix, regular_usage)
 
     cr_assert_not_null(fp);
     ASSERT_FWRITE_MAP(UTMAP_6_6_D25, fp);
-    cr_assert_not(open_map(path, &ms)
-        || !read_map(&mapbuff, &ms)
+    cr_assert_not(open_map(path, &ms) || !read_map(&mapbuff, &ms)
         || get_dimensions(&md, &ms, mapbuff));
     cr_assert_not(test_alloc_matrix(&md));
 }
@@ -54,8 +51,7 @@ Test(alloc_matrix, broken_malloc, .fini = fix_malloc)
 
     cr_assert_not_null(fp);
     ASSERT_FWRITE_MAP(UTMAP_6_6_D25, fp);
-    cr_assert_not(open_map(path, &ms)
-        || !read_map(&mapbuff, &ms)
+    cr_assert_not(open_map(path, &ms) || !read_map(&mapbuff, &ms)
         || get_dimensions(&md, &ms, mapbuff));
     break_malloc();
     cr_assert(test_alloc_matrix(&md));

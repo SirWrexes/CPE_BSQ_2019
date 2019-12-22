@@ -7,8 +7,7 @@
 
 #include "bsq.h"
 
-__Aconst
-bsqdata_t *bsq_position(void)
+__Aconst bsqdata_t *bsq_position(void)
 {
     static bsqdata_t bd;
 

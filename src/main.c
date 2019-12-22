@@ -13,10 +13,9 @@
 
 #include "bsq.h"
 
-__Anonnull
-static bool find_bsq(mapdims_t *md, str_t mapbuff, mapstat_t *ms)
+__Anonnull static bool find_bsq(mapdims_t *md, str_t mapbuff, mapstat_t *ms)
 {
-    uint (*mtxp)[md->y][md->x] = NULL;
+    uint(*mtxp)[md->y][md->x] = NULL;
     bsqdata_t bsq;
     uint offset = (fox_unumsize(md->y) + 1) * sizeof(char);
 
@@ -41,10 +40,9 @@ int main(int ac, char **av)
     mapdims_t md = {.x = 0, .y = 0};
     str_t mapbuff = NULL;
 
-    if (ac != 2
-    || open_map(av[1], &ms)
-    || (count_t) read_map(&mapbuff, &ms) != ms.stat.st_size / sizeof(char)
-    || get_dimensions(&md, &ms, mapbuff))
+    if (ac != 2 || open_map(av[1], &ms)
+        || (count_t) read_map(&mapbuff, &ms) != ms.stat.st_size / sizeof(char)
+        || get_dimensions(&md, &ms, mapbuff))
         return 84;
     if (md.x == 1 || md.x == 1)
         return solve_1d(mapbuff) * 84;

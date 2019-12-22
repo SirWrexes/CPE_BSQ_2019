@@ -6,8 +6,8 @@
 */
 
 #include <errno.h>
-#include <unistd.h>
 #include <fcntl.h>
+#include <unistd.h>
 
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>

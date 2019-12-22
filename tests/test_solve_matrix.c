@@ -14,8 +14,7 @@
 
 #include "bsq.h"
 
-__Anonnull
-static bool test_matrix(mapdims_t *md, str_t mapbuff)
+__Anonnull static bool test_matrix(mapdims_t *md, str_t mapbuff)
 {
     uint(*mtxp)[md->y][md->x] = NULL;
     bool b = false;
@@ -29,13 +28,11 @@ static bool test_matrix(mapdims_t *md, str_t mapbuff)
     return b;
 }
 
-__Anonnull
-static bool write_map_file(str2c_t path, const char map[44])
+__Anonnull static bool write_map_file(str2c_t path, const char map[44])
 {
     FILE *fp = fopen(path, "w+");
 
-    if (fp == NULL
-        || fwrite(map, sizeof(*map), strlen(map), fp) != strlen(map)
+    if (fp == NULL || fwrite(map, sizeof(*map), strlen(map), fp) != strlen(map)
         || fclose(fp))
         return true;
     return false;

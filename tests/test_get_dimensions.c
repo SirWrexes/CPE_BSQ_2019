@@ -5,9 +5,9 @@
 ** UT: Getting and doing a preemptive check of the map's dimensions
 */
 
-#include <unistd.h>
-#include <stdio.h>
 #include <fcntl.h>
+#include <stdio.h>
+#include <unistd.h>
 
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
@@ -19,7 +19,7 @@ Test(get_dimentsions, regular_usage)
 {
     str2c_t path = "UTMAP_10_10_D3-dimensions-OK.tmp";
     mapstat_t ms = {-1, {0}};
-    mapdims_t md = { .x = 0, .y = 0 };
+    mapdims_t md = {.x = 0, .y = 0};
     str_t buffer = NULL;
     FILE *fp = fopen(path, "w+");
 
@@ -35,7 +35,7 @@ Test(get_dimentsions, invalid_line_one_a)
 {
     str2c_t path = "UTMAP_10_10_D3-invalid_l1-A.tmp";
     mapstat_t ms = {-1, {0}};
-    mapdims_t md = { .x = 0, .y = 0 };
+    mapdims_t md = {.x = 0, .y = 0};
     str_t buffer = NULL;
     FILE *fp = fopen(path, "w+");
 
@@ -51,7 +51,7 @@ Test(get_dimentsions, invalid_line_one_b)
 {
     str2c_t path = "UTMAP_10_10_D3-invalid_l1-B.tmp";
     mapstat_t ms = {-1, {0}};
-    mapdims_t md = { .x = 0, .y = 0 };
+    mapdims_t md = {.x = 0, .y = 0};
     str_t buffer = NULL;
     FILE *fp = fopen(path, "w+");
 
@@ -67,7 +67,7 @@ Test(get_dimentsions, invalid_char_count)
 {
     str2c_t path = "UTMAP_10_10_D3-invalid_cc.tmp";
     mapstat_t ms = {-1, {0}};
-    mapdims_t md = { .x = 0, .y = 0 };
+    mapdims_t md = {.x = 0, .y = 0};
     str_t buffer = NULL;
     FILE *fp = fopen(path, "w+");
 

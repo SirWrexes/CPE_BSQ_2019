@@ -12,8 +12,7 @@
 
 #include "bsq.h"
 
-__Anonnull
-static void update_bsq_position(mapdims_t *pos, uint size)
+__Anonnull static void update_bsq_position(mapdims_t *pos, uint size)
 {
     if (BSQPOS.size >= size)
         return;
@@ -22,22 +21,18 @@ static void update_bsq_position(mapdims_t *pos, uint size)
     BSQPOS.size = size;
 }
 
-__Anonnull
-static uint get_cell_value(
+__Anonnull static uint get_cell_value(
     mapdims_t *md, uint mtx[md->y][md->x], mapdims_t *pos)
 {
-    return
+    return N_MIN(
         N_MIN(
-            N_MIN(
-                pos->x ? mtx[pos->y][pos->x - 1] : 0,
-                pos->y ? mtx[pos->y - 1][pos->x] : 0
-            ),
-            pos->x && pos->y ? mtx[pos->y - 1][pos->x - 1] : 0
-     ) + 1;
+            pos->x ? mtx[pos->y][pos->x - 1] : 0,
+            pos->y ? mtx[pos->y - 1][pos->x] : 0),
+        pos->x && pos->y ? mtx[pos->y - 1][pos->x - 1] : 0)
+        + 1;
 }
 
-__Anonnull
-static bool set_line(
+__Anonnull static bool set_line(
     mapdims_t *md, uint mtx[md->y][md->x], mapdims_t *pos, str2c_t *mapbuff)
 {
     for (pos->x = 0; pos->x < md->x; pos->x += 1) {
@@ -46,17 +41,15 @@ static bool set_line(
                 mtx[pos->y][pos->x] = get_cell_value(md, mtx, pos);
                 update_bsq_position(pos, mtx[pos->y][pos->x]);
                 continue;
-            case 'o':
-                mtx[pos->y][pos->x] = 0;
-                continue;
+            case 'o': mtx[pos->y][pos->x] = 0; continue;
             default: return true;
         }
     }
     return !SUCCEED_IF_DIFF(*(*mapbuff)++, '\n');
 }
 
-__Anonnull
-bool solve_matrix(mapdims_t *md, uint mtx[md->y][md->x], str2c_t mapbuff)
+__Anonnull bool solve_matrix(
+    mapdims_t *md, uint mtx[md->y][md->x], str2c_t mapbuff)
 {
     mapdims_t pos;
 
