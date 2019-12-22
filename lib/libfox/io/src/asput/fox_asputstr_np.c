@@ -6,22 +6,22 @@
 */
 
 #include <malloc.h>
-#include "fox_string.h"
-#include "fox_io.h"
-#include "fox_define.h"
 
-__Apure
-static count_t getlen(str2c_t str)
+#include "fox_define.h"
+#include "fox_io.h"
+#include "fox_std.h"
+#include "fox_string.h"
+
+__Apure static count_t getlen(str2c_t str)
 {
     count_t i = 0;
 
     for (; *str != '\0'; str += 1)
-        i += (CHAR_IS_PRINTABLE(*str) || *str == '\n') ? 1 : 4;
+        i += fox_isprintable(*str) ? 1 : 4;
     return i;
 }
 
-__Anonnull
-scount_t fox_asputstr_np(str_t *s, str2c_t str)
+__Anonnull scount_t fox_asputstr_np(str_t *s, str2c_t str)
 {
     count_t len = getlen(str);
 

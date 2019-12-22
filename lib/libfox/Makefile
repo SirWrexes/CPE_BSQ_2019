@@ -14,15 +14,22 @@ CP      := cp -t
 MV      := mv -t
 .DEFAULT_GOAL := all
 
+MODULES += csfml
 MODULES += datastruct
 MODULES += io
 MODULES += math
+MODULES += memory
 MODULES += std
 MODULES += string
 
 .PHONY: $(MODULES)
 $(MODULES):
 	@$(MAKE) $@ $(RULE)
+	@echo
+
+.PHONY: test-%
+test-%:
+	@$(MAKE) $(subst test-,,$@) tests
 	@echo
 
 .PHONY: compiledb

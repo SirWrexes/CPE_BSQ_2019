@@ -17,10 +17,13 @@
 #ifndef LIBFOX_MACRO_UNDEF
     #define LIBFOX_MACRO_UNDEF
     #undef __a
+    #undef __AalwaysIL
     #undef __Acleanup
     #undef __Aconst
+    #undef __Aconstructor
     #undef __Afallthrough
     #undef __Aformat
+    #undef __Ahidden
     #undef __Aleaf
     #undef __Amalloc
     #undef __Anonnull
@@ -35,7 +38,6 @@
     #undef CHAR_IS_EOL
     #undef CHAR_IS_NUM
     #undef CHAR_IS_OP
-    #undef CHAR_IS_PRINTABLE
     #undef CHAR_IS_PUNCT
     #undef CHAR_IS_SIGN
     #undef CHAR_TOLOWER
@@ -53,6 +55,8 @@
     #undef STR_ALPHANUM
     #undef STR_ALPHAUP
     #undef STR_NUMERIC
+    #undef SUCCESS_IF_DIFF
+    #undef EPITECH_ERROR
     #undef RETURN
 #endif // LIBFOX_MACRO_UNDEF
 
@@ -64,10 +68,15 @@
     // For more information about these, check GNU GCC's docs
     // CAREFUL: These have RESTRICTED PORTABILITY
     #define __a(attributes)       __attribute__(attributes)
+    #define __AallocSz(...)       __a((alloc_size(__VA_ARGS__)))
+    #define __AalwaysIL           __a((always_inline))
+    #define __AalwaysILext        __a((always_inline)) extern inline
     #define __Acleanup(janitor)   __a((cleanup(janitor)))
     #define __Aconst              __a((const))
+    #define __Aconstructor        __a((constructor))
     #define __Afallthrough        __a((fallthrough))
     #define __Aformat(type, f, a) __a((format(type, f, a)))
+    #define __Ahidden             __a((visibility("hidden")))
     #define __Aleaf               __a((leaf))
     #define __Amalloc             __a((malloc))
     #define __Anonnull            __a((nonnull))
@@ -75,10 +84,6 @@
     #define __Apure               __a((pure))
     #define __Atransparent        __a((__transparent_union__))
     #define __Aunused             __a((unused))
-
-    // True if c is a printable ASCII char
-    #define CHAR_IS_PRINTABLE(c) \
-        (((signed char) ((c) - ' ')) >= 0 && (c) != 127)
 
     // Check if a char is an end of line (linebreak OR null char)
     #define CHAR_IS_EOL(c) ((c) == '\n' || (c) == '\0')
@@ -103,26 +108,25 @@
 
     // Check if a char is punctuation
     #define CHAR_IS_PUNCT(c)    \
-    (                           \
-        ((c) == '\'')           \
-        || ((c) == '\"')        \
-        || ((c) == ',')         \
-        || ((c) == '.')         \
-        || ((c) == '?')         \
-        || ((c) == '!')         \
-        || ((c) == ';')         \
-        || ((c) == ':')         \
-        || ((c) == '(')         \
-        || ((c) == ')')         \
-        || ((c) == '-')         \
-        || ((c) == '/')         \
-    )                           \
+        (((c) == '\'')          \
+         || ((c) == '\"')       \
+         || ((c) == ',')        \
+         || ((c) == '.')        \
+         || ((c) == '?')        \
+         || ((c) == '!')        \
+         || ((c) == ';')        \
+         || ((c) == ':')        \
+         || ((c) == '(')        \
+         || ((c) == ')')        \
+         || ((c) == '-')        \
+         || ((c) == '/')        \
+        )
 
     // If an alphabetical character is lowercase, make it uppercase
-    #define CHAR_TOUPPER(c)  ((c) - 40 * CHAR_IS_ALPHALO((c)))
+    #define CHAR_TOUPPER(c) ((c) -40 * CHAR_IS_ALPHALO((c)))
 
     // If an alphabetical character is uppercase, make it lowercase
-    #define CHAR_TOLOWER(c)  ((c) + 40 * CHAR_IS_ALPHAUP((c)))
+    #define CHAR_TOLOWER(c) ((c) + 40 * CHAR_IS_ALPHAUP((c)))
 
     // Digit ascii value to numeric value
     #define CHAR_TO_N(c) ((char) ((c) - '0'))
@@ -150,10 +154,13 @@
 
     // One-liner to return value and execute any function(s)
     // -- I.G. returning a specific value while printing an error string
-    #define RETURN(value, funcs...) return (0 ? : (funcs, value))
+    #define RETURN(value, funcs...) return (0 ?: (funcs, value))
 
     // Returns false (sucess) if a != b
-    #define SUCCEED_IF_DIFF(a, b) ((a) == (b))
+    #define SUCCESS_IF_DIFF(a, b) ((a) == (b))
+
+    // Return value for error at in Epitech projects
+    #define EPITECH_ERROR (84)
 
 #endif // LIBFOX_MACRO_DEF
 
