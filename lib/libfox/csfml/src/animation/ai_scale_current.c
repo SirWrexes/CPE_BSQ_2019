@@ -9,5 +9,5 @@
 
 __Anonnull __AalwaysILext const sfVector2f *ai_scale_current(animinfo_t ai)
 {
-    return &ai_meta(ai)->scale[ai->frame];
+    return &ai->scale[ai->current][ai->frame];
 }

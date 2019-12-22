@@ -32,9 +32,6 @@ typedef enum animation_type animtype_t;
 // Sprite animation info
 typedef struct animation_info *animinfo_t;
 
-// Individual animation info
-typedef struct animation_meta *animmeta_t;
-
 // Sprinte info
 typedef struct sprite_info *spinfo_t;
 
@@ -43,9 +40,6 @@ typedef struct game_entity *entity_t;
 
 // Entity event function
 typedef void (*entevt_t)(entity_t *);
-
-// Entity event virtual table
-typedef entevt_t entvtable_t[sfEvtCount];
 
 // Entity list
 typedef struct game_entity_list *entlist_t;
@@ -89,27 +83,20 @@ enum animation_type {
     ANIM_TYPE_COUNT
 };
 
-// Animation metadata
-struct animation_meta {
-    const unsigned id;     // Animation ID
-    const animtype_t type; // Animation type
-
-    const unsigned maxframes; // Max frames
-    const sfIntRect *rect;    // Rectangle for each frame
-    const sfVector2f *scale;  // Scale for each frame
-};
-
 // Animation info object
 struct animation_info {
-    unsigned frame;   // Current frame
+    const unsigned total;     // Total count of animations
+    const animtype_t *type;   // Anim types      // @type[total]
+    const sfIntRect **rect;   // Anim rectangles // @rect[total][frame]
+    const sfVector2f **scale; // Anim scales     // @scale[total][frame]
+
     unsigned current; // Current animation
+    unsigned frame;   // Current frame
 
     enum {
-        PP_FORWARD = -1,
-        PP_BACKWARD = 1
-    } pongstep; // If animation is a ping-pong, this is the step value
-
-    animmeta_t meta; // Animation meta data array
+        PP_FORWARD = 1,
+        PP_BACKWARD = -1
+    } pongstep; // If animation is a ping pong, this is the step incrementer
 };
 
 /*******************************************************************
@@ -120,10 +107,13 @@ struct animation_info {
 
 // Sprite object
 struct sprite_info {
-    unsigned entid;     // Type of the entity the sprite is attached to
-    sfTexture *textptr; // Texture pointer
-    sfSprite *sprite;   // Sprite itself
-    struct animation_info animinfo; // Animations
+    unsigned entid;            // Type of the entity the sprite is attached to
+    const sfTexture **texture; // Textures            // @*texture[MAX{entid}]
+    sfSprite *sprite;          // Sprite itself
+    sfVector2f position;       // Sprite starting position
+    sfVector2f origin;         // Sprite center
+
+    struct animation_info animinfo; // Animation info
 };
 
 /*******************************************************************
@@ -137,15 +127,15 @@ struct game_entity {
     struct game_entity *prev; // Previous entity in the list
     struct game_entity *next; // Next entity in the list
 
+    struct sprite_info spinfo; // Sprite info
+
     bool alive;     // Entity's state
     ssize_t health; // Entity helth
 
-    sfTime tick;        // Cumulative elapsed time since every update event
-    const sfTime *tock; // Update time (MAX possible tick value)
+    sfTime tick;         // Update time limit
+    const sfTime **tock; // Time since last tick
 
-    const entevt_t (*on_event)[sfEvtCount]; // Event handlers
-
-    struct sprite_info spinfo; // Sprite info
+    const entevt_t (*on_event)[sfEvtCount];
 };
 
 // Entity list

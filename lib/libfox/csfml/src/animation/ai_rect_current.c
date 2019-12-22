@@ -7,7 +7,7 @@
 
 #include "fox_csfml.h"
 
-__Anonnull __AalwaysILext const sfIntRect *ai_rect_current(animinfo_t ai)
+__Anonnull __AalwaysILext const sfIntRect *ai_rect_current(animinfo_t a)
 {
-    return &ai_meta(ai)->rect[ai->frame];
+    return &a->rect[a->current][a->frame];
 }

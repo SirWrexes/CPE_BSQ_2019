@@ -17,18 +17,19 @@ NAME := csfml
 #
 # Sources (set relative to master Makefile path)
 ################################################
-DEBUGMAIN := ./src/macrotest.c
+DEBUGMAIN := ./src/debugmain.c
 # -- Animation tools
-SRC := ./src/animation/ai_meta.c
-SRC += ./src/animation/ai_on_last_frame.c
+SRC := ./src/animation/ai_on_last_frame.c
+SRC += ./src/animation/ai_scale_current.c
 SRC += ./src/animation/ai_rect_current.c
 SRC += ./src/animation/ai_rect_first.c
 SRC += ./src/animation/ai_rect_next.c
 SRC += ./src/animation/ai_rect_prev.c
-SRC += ./src/animation/ai_scale_current.c
 SRC += ./src/animation/ai_type.c
 # -- Sprite tools
 SRC += ./src/sprite/si_update_scale.c
+SRC += ./src/sprite/si_update_pos.c
+SRC += ./src/sprite/si_update_pos_info.c
 ################################################
 
 

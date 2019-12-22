@@ -14,10 +14,11 @@
 #include "datastruct.h"
 
 // Animation info
-#include "animation/functions.h"
+#include "animation/animinfo_funcs.h"
+#include "animation/animinfo_macro.h"
 
 // Sprite info
-#include "sprite/macros.h"
+#include "sprite/spriteinfo_funcs.h"
 
 // Current scene pointer
 // Set when creating a scene with scene_create()

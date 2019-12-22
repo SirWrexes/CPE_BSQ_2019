@@ -5,9 +5,10 @@
 ** ai_current_type.c -- No description
 */
 
-#include "fox_csfml.h"
+#include "fox_define.h"
+#include "datastruct.h"
 
 __Anonnull __AalwaysILext unsigned ai_type(animinfo_t ai)
 {
-    return ai_meta(ai)->type;
+    return ai->type[ai->current];
 }
